@@ -62,4 +62,11 @@ public class Pessoa {
     public String getSexo() {
         return sexo;
     }
+
+    public void atualizaDados(DadosAlteracaoPessoa dados){
+        this.nome = dados.nome();
+        this.dataNasc = dados.dataNasc();
+        this.CPF = dados.CPF();
+        this.sexo = dados.sexo();
+    }
 }

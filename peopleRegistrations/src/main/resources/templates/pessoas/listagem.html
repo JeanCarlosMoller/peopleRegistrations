@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout"
+      layout:decorate="~{template.html}"
+>
+<head>
+    <title>Cadastro de Pessoas</title>
+</head>
+<body>
+
+<div layout:fragment="conteudo">
+    <h1>Lista de Pessoas</h1>
+    <a href="/pessoas/formulario">Novo</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data Nascimento</th>
+            <th>CPF</th>
+            <th>Sexo</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="pessoa : ${lista}">
+            <td th:text="${pessoa.nome}"></td>
+            <td th:text="${pessoa.dataNasc}"></td>
+            <td th:text="${pessoa.CPF}"></td>
+            <td th:text="${pessoa.sexo}"></td>
+            <td>
+                <a th:href="@{/pessoa/formulario?id={id}(id=${pessoa.id})}">Editar</a>
+
+                <form action="/pessoa" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="id" th:value="${pessoa.id}">
+
+                    <input type="submit" value="Excluir">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
