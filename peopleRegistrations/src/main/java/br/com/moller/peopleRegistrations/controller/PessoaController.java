@@ -57,5 +57,6 @@ public class PessoaController {
         repository.deleteById(id);
 
         return "redirect:/pessoas";
+
     }
 }

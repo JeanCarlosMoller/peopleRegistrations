@@ -17,7 +17,6 @@
         <thead>
         <tr>
             <th>Nome</th>
-            <th>Data Nascimento</th>
             <th>CPF</th>
             <th>Sexo</th>
         </tr>
@@ -26,13 +25,12 @@
         <tbody>
         <tr th:each="pessoa : ${lista}">
             <td th:text="${pessoa.nome}"></td>
-            <td th:text="${pessoa.dataNasc}"></td>
             <td th:text="${pessoa.CPF}"></td>
             <td th:text="${pessoa.sexo}"></td>
             <td>
-                <a th:href="@{/pessoa/formulario?id={id}(id=${pessoa.id})}">Editar</a>
+                <a th:href="@{/pessoas/formulario?id={id}(id=${pessoa.id})}">Editar</a>
 
-                <form action="/pessoa" method="post">
+                <form action="/pessoas" method="post">
                     <input type="hidden" name="_method" value="delete">
                     <input type="hidden" name="id" th:value="${pessoa.id}">
 

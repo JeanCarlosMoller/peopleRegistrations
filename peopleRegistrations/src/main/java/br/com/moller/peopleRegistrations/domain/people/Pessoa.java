@@ -1,9 +1,6 @@
 package br.com.moller.peopleRegistrations.domain.people;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -12,19 +9,19 @@ import java.util.Date;
 public class Pessoa {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
-    private Date dataNasc;
+    //private Date dataNasc;
     private String CPF;
     private String sexo;
 
     public Pessoa(DadosCadastroPessoa dados){
         this.nome = dados.nome();
-        this.dataNasc = dados.dataNasc();
+        //this.dataNasc = dados.dataNasc();
         this.CPF = dados.CPF();
-        this.sexo = dados.Sexo();
+        this.sexo = dados.sexo();
 
     }
 
@@ -37,7 +34,7 @@ public class Pessoa {
         return "Pessoa{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", dataNasc=" + dataNasc +
+                //", dataNasc=" + dataNasc +
                 ", CPF='" + CPF + '\'' +
                 ", Sexo='" + sexo + '\'' +
                 '}';
@@ -51,9 +48,9 @@ public class Pessoa {
         return nome;
     }
 
-    public Date getDataNasc() {
-        return dataNasc;
-    }
+    //public Date getDataNasc() {
+        //return dataNasc;
+    //}
 
     public String getCPF() {
         return CPF;
@@ -65,7 +62,7 @@ public class Pessoa {
 
     public void atualizaDados(DadosAlteracaoPessoa dados){
         this.nome = dados.nome();
-        this.dataNasc = dados.dataNasc();
+        //this.dataNasc = dados.dataNasc();
         this.CPF = dados.CPF();
         this.sexo = dados.sexo();
     }
