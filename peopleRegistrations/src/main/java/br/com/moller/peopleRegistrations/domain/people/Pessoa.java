@@ -48,10 +48,6 @@ public class Pessoa {
         return nome;
     }
 
-    //public Date getDataNasc() {
-        //return dataNasc;
-    //}
-
     public String getCPF() {
         return CPF;
     }
